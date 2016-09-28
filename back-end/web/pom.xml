@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>back-end</artifactId>
+        <groupId>com.epam.rd-management-system</groupId>
+        <version>0.1</version>
+    </parent>
+
+    <groupId>com.epam.rd-management-system.back-end</groupId>
+    <artifactId>web</artifactId>
+    <name>${project.parent.artifactId}::${project.artifactId}</name>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!--Module core-->
+        <dependency>
+            <groupId>com.epam.rd-management-system.back-end</groupId>
+            <artifactId>core</artifactId>
+        </dependency>
+
+        <!--Spring-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
+        <!--JSON-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <!--Servlet-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+
+        <!--Test-->
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path-assert</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

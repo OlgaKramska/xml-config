@@ -1,0 +1,6 @@
+# JetBrain Template
+.idea/
+*.iml
+
+# Maven Template
+target/
