@@ -4,7 +4,6 @@ import com.epam.rd.backend.core.model.User;
 import com.epam.rd.backend.core.model.UserRole;
 import com.epam.rd.backend.core.service.UserService;
 import com.epam.rd.backend.web.utill.CaseInsensitiveUserRoleEditor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,7 @@ import java.util.List;
 
 @RestController
 public class UserController {
-    @Autowired
+
     private UserService userService;
 
     @InitBinder
@@ -125,5 +124,9 @@ public class UserController {
             responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return responseEntity;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 }

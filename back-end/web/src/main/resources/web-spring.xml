@@ -27,4 +27,7 @@
     <bean id="topicController" class="com.epam.rd.backend.web.controller.TopicController"
           p:topicService-ref="topicService"/>
 
+    <bean id="userController" class="com.epam.rd.backend.web.controller.UserController"
+          p:userService-ref="userService"/>
+
 </beans>
