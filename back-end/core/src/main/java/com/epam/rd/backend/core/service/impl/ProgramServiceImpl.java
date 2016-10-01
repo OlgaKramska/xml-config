@@ -66,5 +66,6 @@ public class ProgramServiceImpl implements ProgramService {
     }
 
     public void setProgramRepository(ProgramRepository programRepository) {
+        this.programRepository = programRepository;
     }
 }

@@ -62,10 +62,6 @@ public class LectureServiceImpl implements LectureService {
         return lectureRepository.count();
     }
 
-    public LectureRepository getLectureRepository() {
-        return lectureRepository;
-    }
-
     public void setLectureRepository(LectureRepository lectureRepository) {
         this.lectureRepository = lectureRepository;
     }

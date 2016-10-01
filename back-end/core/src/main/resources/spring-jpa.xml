@@ -55,7 +55,7 @@
     <!--services-->
 
     <bean id="lectureService" class="com.epam.rd.backend.core.service.impl.LectureServiceImpl"
-         p:lectureRepository-ref="lectureRepository"/>
+          p:lectureRepository-ref="lectureRepository"/>
 
     <bean id="moduleService" class="com.epam.rd.backend.core.service.impl.ModuleServiceImpl"
           p:moduleRepository-ref="moduleRepository"/>
@@ -64,6 +64,9 @@
           p:practicalTaskRepository-ref="practicalTaskRepository"/>
 
     <bean id="programService" class="com.epam.rd.backend.core.service.impl.ProgramServiceImpl"
-    p:programRepository-ref="programRepository"/>
+          p:programRepository-ref="programRepository"/>
+
+    <bean id="topicService" class="com.epam.rd.backend.core.service.impl.TopicServiceImpl"
+          p:topicRepository-ref="topicRepository"/>
 
 </beans>

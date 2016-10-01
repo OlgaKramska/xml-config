@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class TopicServiceImpl implements TopicService {
 
-    @Autowired
     private TopicRepository topicRepository;
 
     @Override
@@ -61,5 +60,9 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public Long getCountTopic() {
         return topicRepository.count();
+    }
+
+    public void setTopicRepository(TopicRepository topicRepository) {
+        this.topicRepository = topicRepository;
     }
 }

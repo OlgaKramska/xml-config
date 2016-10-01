@@ -63,5 +63,6 @@ public class PracticalTaskServiceImpl implements PracticalTaskService {
     }
 
     public void setPracticalTaskRepository(PracticalTaskRepository practicalTaskRepository) {
+        this.practicalTaskRepository = practicalTaskRepository;
     }
 }

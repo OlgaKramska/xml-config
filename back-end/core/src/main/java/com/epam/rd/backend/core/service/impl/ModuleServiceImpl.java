@@ -66,7 +66,4 @@ public class ModuleServiceImpl implements ModuleService {
         this.moduleRepository = moduleRepository;
     }
 
-    public ModuleRepository getModuleRepository() {
-        return moduleRepository;
-    }
 }
