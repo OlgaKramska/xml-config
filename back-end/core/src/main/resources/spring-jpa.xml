@@ -63,4 +63,7 @@
     <bean id="practicalTaskService" class="com.epam.rd.backend.core.service.impl.PracticalTaskServiceImpl"
           p:practicalTaskRepository-ref="practicalTaskRepository"/>
 
+    <bean id="programService" class="com.epam.rd.backend.core.service.impl.ProgramServiceImpl"
+    p:programRepository-ref="programRepository"/>
+
 </beans>

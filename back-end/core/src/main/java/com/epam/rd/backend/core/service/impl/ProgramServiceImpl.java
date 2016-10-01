@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class ProgramServiceImpl implements ProgramService {
 
-    @Autowired
     private ProgramRepository programRepository;
 
     @Override
@@ -64,5 +63,8 @@ public class ProgramServiceImpl implements ProgramService {
     @Override
     public Long getCountProgram() {
         return programRepository.count();
+    }
+
+    public void setProgramRepository(ProgramRepository programRepository) {
     }
 }
