@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    private UserService service;
+    private UserService userService;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -28,7 +28,7 @@ public class UserController {
     @RequestMapping(value = "/users",
             method = RequestMethod.GET)
     public ResponseEntity<List<User>> getAllUser() {
-        final List<User> users = service.getAllUsers();
+        final List<User> users = userService.getAllUsers();
         ResponseEntity<List<User>> responseEntity;
         if (users.isEmpty()) {
             responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -41,7 +41,7 @@ public class UserController {
     @RequestMapping(value = "/users/{role}", method = RequestMethod.GET)
     public ResponseEntity<List<User>> getUsersByRole(@PathVariable("role") final UserRole role) {
         ResponseEntity<List<User>> responseEntity;
-        final List<User> users = service.getUsersByRoles(Collections.singleton(role));
+        final List<User> users = userService.getUsersByRoles(Collections.singleton(role));
         if (users.isEmpty()) {
             responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
@@ -53,7 +53,7 @@ public class UserController {
     @RequestMapping(value = "/user/{id}",
             method = RequestMethod.GET)
     public ResponseEntity<User> getUserById(@PathVariable("id") final int id) {
-        final User user = service.getUserById(id);
+        final User user = userService.getUserById(id);
         ResponseEntity<User> responseEntity;
         if (user != null) {
             responseEntity = new ResponseEntity<>(user, HttpStatus.OK);
@@ -70,7 +70,7 @@ public class UserController {
         if (isUserExistByEmail(user)) {
             responseEntity = new ResponseEntity<>(HttpStatus.CONFLICT);
         } else {
-            final User newUser = service.addUser(user);
+            final User newUser = userService.addUser(user);
             HttpHeaders headers = new HttpHeaders();
             headers.setLocation(builder.path("/user/{id}").buildAndExpand(newUser.getId()).toUri());
             responseEntity = new ResponseEntity<>(headers, HttpStatus.CREATED);
@@ -79,21 +79,21 @@ public class UserController {
     }
 
     private boolean isUserExistByEmail(final User user) {
-        return service.getUserByEmail(user.getEmail()) != null;
+        return userService.getUserByEmail(user.getEmail()) != null;
     }
 
     @RequestMapping(value = "/user/{id}",
             method = RequestMethod.PUT)
     public ResponseEntity<User> updateUserById(@PathVariable("id") final int id, @RequestBody final User user) {
         ResponseEntity<User> responseEntity;
-        final User currentUser = service.getUserById(id);
+        final User currentUser = userService.getUserById(id);
         if (currentUser == null) {
             responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             currentUser.setName(user.getName());
             currentUser.setEmail(user.getEmail());
             currentUser.setPassword(user.getPassword());
-            final User updateUser = service.updateUser(currentUser);
+            final User updateUser = userService.updateUser(currentUser);
             responseEntity = new ResponseEntity<>(updateUser, HttpStatus.OK);
         }
         return responseEntity;
@@ -103,11 +103,11 @@ public class UserController {
             method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteUserById(@PathVariable("id") final int id) {
         ResponseEntity<Void> responseEntity;
-        final User currentUser = service.getUserById(id);
+        final User currentUser = userService.getUserById(id);
         if (currentUser == null) {
             responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            service.deleteUserById(id);
+            userService.deleteUserById(id);
             responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return responseEntity;
@@ -117,11 +117,11 @@ public class UserController {
             method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteAllUsers() {
         ResponseEntity<Void> responseEntity;
-        final long usersCount = service.getUsersCount();
+        final long usersCount = userService.getUsersCount();
         if (usersCount == 0) {
             responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            service.deleteAllUsers();
+            userService.deleteAllUsers();
             responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return responseEntity;

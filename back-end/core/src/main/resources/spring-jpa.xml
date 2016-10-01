@@ -69,4 +69,7 @@
     <bean id="topicService" class="com.epam.rd.backend.core.service.impl.TopicServiceImpl"
           p:topicRepository-ref="topicRepository"/>
 
+    <bean id="userService" class="com.epam.rd.backend.core.service.impl.UserServiceImpl"
+          p:userRepository-ref="userRepository"/>
+
 </beans>
