@@ -13,30 +13,34 @@
 
     <context:component-scan base-package="com.epam.rd.backend.core.service"/>
     <!--TODO !!! should I declare all services as bean-->
-    <context:property-placeholder location="classpath:app-config.properties"/>
+    <!--<context:property-placeholder location="classpath:app-config.properties"/>-->
     <jpa:repositories base-package="com.epam.rd.backend.core.repository"/>
 
     <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer"/>
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <p:url value="${db.url}"/>
-        <p:driverClassName value="${db.driver}"/>
-        <p:username value="${db.username}"/>
-        <p:password value="${db.password}"/>
+    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="locations" value="classpath:app-config.properties"/>-->
+    <!--</bean>-->
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="org.h2.Driver"
+          p:url="jdbc:h2:mem:rd_ms_db;DATABASE_TO_UPPER=false;DB_CLOSE_DELAY=-1"
+          p:username="sa"
+          p:password="">
     </bean>
 
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <p:dataSource ref="dataSource"/>
-        <p:packagesToScan value="com.epam.rd.backend.core.model"/>
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:packagesToScan="com.epam.rd.backend.core.model">
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.dialect">"${hibernate.dialect}"</prop>
-                <prop key="hibernate.show_sql">"${hibernate.show_sql}"</prop>
-                <prop key="hibernate.format_sql">"${hibernate.format_sql}"</prop>
-                <prop key="hibernate.hbm2ddl.auto">"${hibernate.hbm2ddl.auto}"</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>
         <property name="persistenceProvider">
@@ -44,8 +48,8 @@
         </property>
     </bean>
 
-    <bean class="org.springframework.orm.jpa.JpaTransactionManager">
-        <p:entityManagerFactory value="#{entityManagerFactory.getObject()}"/>
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager"
+          p:entityManagerFactory-ref="entityManagerFactory">
     </bean>
 
 </beans>
