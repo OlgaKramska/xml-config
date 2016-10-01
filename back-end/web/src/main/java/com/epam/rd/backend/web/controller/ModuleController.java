@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 public class ModuleController {
 
-    @Autowired
     private ModuleService moduleService;
 
     @RequestMapping(value = "/module",

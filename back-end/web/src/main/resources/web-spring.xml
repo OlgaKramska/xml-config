@@ -18,4 +18,7 @@
     <bean id="moduleController" class="com.epam.rd.backend.web.controller.ModuleController"
           p:moduleService-ref="moduleService"/>
 
+    <bean id="practicalTaskController" class="com.epam.rd.backend.web.controller.PracticalTaskController"
+          p:practicalTaskService-ref="practicalTaskService"/>
+
 </beans>

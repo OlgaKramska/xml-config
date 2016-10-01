@@ -2,6 +2,7 @@ package com.epam.rd.backend.web.controller;
 
 import com.epam.rd.backend.core.model.PracticalTask;
 import com.epam.rd.backend.core.service.PracticalTaskService;
+import com.epam.rd.backend.core.service.impl.PracticalTaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,6 @@ import java.util.List;
 public class PracticalTaskController {
 
 
-    @Autowired
     private PracticalTaskService practicalTaskService;
 
     @RequestMapping(value = "/practicalTask",
@@ -108,5 +108,9 @@ public class PracticalTaskController {
             responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return responseEntity;
+    }
+
+    public void setPracticalTaskService(PracticalTaskServiceImpl practicalTaskService) {
+        this.practicalTaskService = practicalTaskService;
     }
 }
