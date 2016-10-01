@@ -3,7 +3,6 @@ package com.epam.rd.backend.core.service.impl;
 import com.epam.rd.backend.core.model.Topic;
 import com.epam.rd.backend.core.repository.TopicRepository;
 import com.epam.rd.backend.core.service.TopicService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;

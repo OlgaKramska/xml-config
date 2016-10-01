@@ -3,7 +3,6 @@ package com.epam.rd.backend.core.service.impl;
 import com.epam.rd.backend.core.model.PracticalTask;
 import com.epam.rd.backend.core.repository.PracticalTaskRepository;
 import com.epam.rd.backend.core.service.PracticalTaskService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
