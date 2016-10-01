@@ -2,6 +2,7 @@ package com.epam.rd.backend.web.controller;
 
 import com.epam.rd.backend.core.model.Lecture;
 import com.epam.rd.backend.core.service.LectureService;
+import com.epam.rd.backend.core.service.impl.LectureServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,8 +15,6 @@ import java.util.List;
 @RestController
 public class LectureController {
 
-
-    @Autowired
     private LectureService lectureService;
 
     @RequestMapping(value = "/lecture",
@@ -107,5 +106,9 @@ public class LectureController {
             responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return responseEntity;
+    }
+
+    public void setLectureService(LectureServiceImpl lectureService) {
+        this.lectureService = lectureService;
     }
 }
