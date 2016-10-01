@@ -2,8 +2,6 @@ package com.epam.rd.backend.web.controller;
 
 import com.epam.rd.backend.core.model.PracticalTask;
 import com.epam.rd.backend.core.service.PracticalTaskService;
-import com.epam.rd.backend.core.service.impl.PracticalTaskServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -110,7 +108,7 @@ public class PracticalTaskController {
         return responseEntity;
     }
 
-    public void setPracticalTaskService(PracticalTaskServiceImpl practicalTaskService) {
+    public void setPracticalTaskService(PracticalTaskService practicalTaskService) {
         this.practicalTaskService = practicalTaskService;
     }
 }

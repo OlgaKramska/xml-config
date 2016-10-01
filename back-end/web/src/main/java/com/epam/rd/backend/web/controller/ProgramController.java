@@ -3,7 +3,6 @@ package com.epam.rd.backend.web.controller;
 
 import com.epam.rd.backend.core.model.Program;
 import com.epam.rd.backend.core.service.ProgramService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,6 @@ import java.util.List;
 @RestController
 public class ProgramController {
 
-    @Autowired
     private ProgramService programService;
 
     @RequestMapping(value = "/program",
@@ -107,5 +105,9 @@ public class ProgramController {
             responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return responseEntity;
+    }
+
+    public void setProgramService(ProgramService programService) {
+        this.programService = programService;
     }
 }

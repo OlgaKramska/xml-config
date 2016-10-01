@@ -21,4 +21,7 @@
     <bean id="practicalTaskController" class="com.epam.rd.backend.web.controller.PracticalTaskController"
           p:practicalTaskService-ref="practicalTaskService"/>
 
+    <bean id="programController" class="com.epam.rd.backend.web.controller.ProgramController"
+          p:programService-ref="programService"/>
+
 </beans>

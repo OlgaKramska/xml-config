@@ -2,8 +2,6 @@ package com.epam.rd.backend.web.controller;
 
 import com.epam.rd.backend.core.model.Module;
 import com.epam.rd.backend.core.service.ModuleService;
-import com.epam.rd.backend.core.service.impl.ModuleServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -108,7 +106,7 @@ public class ModuleController {
         return responseEntity;
     }
 
-    public void setModuleService(ModuleServiceImpl moduleService) {
+    public void setModuleService(ModuleService moduleService) {
         this.moduleService = moduleService;
     }
 }
