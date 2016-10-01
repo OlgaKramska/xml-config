@@ -12,7 +12,10 @@
 
     <context:component-scan base-package="com.epam.rd.backend.web"/>
 
-    <bean id="LectureController" class="com.epam.rd.backend.web.controller.LectureController"
+    <bean id="lectureController" class="com.epam.rd.backend.web.controller.LectureController"
           p:lectureService-ref="lectureService"/>
+
+    <bean id="moduleController" class="com.epam.rd.backend.web.controller.ModuleController"
+          p:moduleService-ref="moduleService"/>
 
 </beans>
