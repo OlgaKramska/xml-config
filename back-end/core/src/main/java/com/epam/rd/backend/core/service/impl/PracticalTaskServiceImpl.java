@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class PracticalTaskServiceImpl implements PracticalTaskService {
 
-    @Autowired
     private PracticalTaskRepository practicalTaskRepository;
 
     @Override
@@ -61,5 +60,8 @@ public class PracticalTaskServiceImpl implements PracticalTaskService {
     @Override
     public Long getCountPracticalTask() {
         return practicalTaskRepository.count();
+    }
+
+    public void setPracticalTaskRepository(PracticalTaskRepository practicalTaskRepository) {
     }
 }

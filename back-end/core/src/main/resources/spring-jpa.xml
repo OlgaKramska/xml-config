@@ -60,4 +60,7 @@
     <bean id="moduleService" class="com.epam.rd.backend.core.service.impl.ModuleServiceImpl"
           p:moduleRepository-ref="moduleRepository"/>
 
+    <bean id="practicalTaskService" class="com.epam.rd.backend.core.service.impl.PracticalTaskServiceImpl"
+          p:practicalTaskRepository-ref="practicalTaskRepository"/>
+
 </beans>
