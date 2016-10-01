@@ -3,14 +3,30 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-         http://www.springframework.org/schema/context
-          http://www.springframework.org/schema/context/spring-context.xsd">
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-    <import resource="classpath:core-spring.xml"/>
+    <mvc:annotation-driven />
 
     <context:component-scan base-package="com.epam.rd.backend.web"/>
+
+    <import resource="core-spring.xml"/>
+
+    <bean id="viewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver"
+            p:characterEncoding="UTF-8"
+            p:templateEngine-ref="templateEngine"/>
+
+    <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine"
+            p:templateResolver-ref="templateResolver"/>
+
+    <bean id="templateResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver"
+            p:prefix="/WEB-INF/templates/"
+            p:templateMode="HTML5"/>
 
     <bean id="lectureController" class="com.epam.rd.backend.web.controller.LectureController"
           p:lectureService-ref="lectureService"/>
