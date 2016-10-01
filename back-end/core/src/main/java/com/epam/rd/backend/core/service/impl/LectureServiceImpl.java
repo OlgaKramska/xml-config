@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class LectureServiceImpl implements LectureService {
 
-    @Autowired
     private LectureRepository lectureRepository;
 
     @Override
@@ -61,5 +60,13 @@ public class LectureServiceImpl implements LectureService {
     @Override
     public Long getCountLecture() {
         return lectureRepository.count();
+    }
+
+    public LectureRepository getLectureRepository() {
+        return lectureRepository;
+    }
+
+    public void setLectureRepository(LectureRepository lectureRepository) {
+        this.lectureRepository = lectureRepository;
     }
 }

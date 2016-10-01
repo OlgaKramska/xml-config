@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class ModuleServiceImpl implements ModuleService {
 
-    @Autowired
     private ModuleRepository moduleRepository;
 
     @Override
@@ -61,5 +60,13 @@ public class ModuleServiceImpl implements ModuleService {
     @Override
     public Long getCountModule() {
         return moduleRepository.count();
+    }
+
+    public void setModuleRepository(ModuleRepository moduleRepository) {
+        this.moduleRepository = moduleRepository;
+    }
+
+    public ModuleRepository getModuleRepository() {
+        return moduleRepository;
     }
 }
